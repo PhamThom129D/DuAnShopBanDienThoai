@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,10 +15,6 @@ public class Login {
     private TextField username;
     @FXML
     private PasswordField password;
-   @FXML
-    private Hyperlink sign;
-   @FXML
-    private Hyperlink forgetPassword;
 
    public void initialize() {
    }
@@ -44,12 +41,9 @@ public class Login {
             }
         }else{
             System.out.println("Đăng nhập thất bại");
-            alert.setHeaderText("Good Bye!");
-            alert.setContentText("Login fail");
+            showAlert("Login Fail");
+            this.username.requestFocus();
         }
-
-        alert.showAndWait();
-        this.username.requestFocus();
     }
 
     private String checkUser(String username, String password) throws SQLException {
@@ -60,15 +54,30 @@ public class Login {
            ps.setString(2,password);
            ResultSet rs = ps.executeQuery();
            if(rs.next()){
+               boolean state = rs.getBoolean("state");
+               if(!state){
+                   showAlert("Account Block!");
+                   return null;
+               }
                return rs.getString("role");
-           } else {
-               return null;
-           }
-
+           } else {return null;}
        }catch (SQLException e){
            e.printStackTrace();
            System.out.println("Lỗi kết nối database");
            return null;
        }
+    }
+
+    public void showSignUp(ActionEvent actionEvent) throws IOException {
+            Main.changeScene("Login.fxml");
+    }
+
+    public void forgetPassword(ActionEvent actionEvent) {
+       showAlert("Wait for verification email");
+    }
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(message);
+        alert.showAndWait();
     }
 }
