@@ -1,0 +1,4 @@
+user1,root,1209
+user2,root,linhnhi234
+
+account.txt src/main/java/com/example/duan/DatabaseConnection.java src/main/java/com/example/duan/Login.java src/main/java/com/example/duan/Main.java src/main/java/com/example/duan/Sign.java src/main/resources/com/example/duan/Login.fxml src/main/resources/com/example/duan/Sign.fxml src/main/resources/com/example/duan/style.css

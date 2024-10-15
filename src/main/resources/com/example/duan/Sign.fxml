@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duan.Sign">
+   <children>
+           <Label style="-fx-font-size: 40px ; -fx-text-fill: blue;" text="Register">Tạo tài khoản mới</Label>
+           <Label style="-fx-font-size: 20px" text="Username">Tên đăng nhập
+               <padding>
+                   <Insets bottom="5.0" top="10.0" />
+               </padding>
+         </Label>
+           <TextField fx:id="username" maxWidth="250" promptText="Enter your username">
+        </TextField>
+           <Label style="-fx-font-size: 20px" text="Password">Nhập mật khẩu
+               <padding>
+                   <Insets bottom="5.0" top="10.0" />
+               </padding>
+           </Label>
+           <PasswordField fx:id="password" maxWidth="250" promptText="Enter your password" />
+           <Label style="-fx-font-size: 20px" text="Confirm Password">Nhập lại mật khẩu
+               <padding>
+                   <Insets bottom="5.0" top="10.0" />
+               </padding>
+         </Label>
+           <PasswordField fx:id="rePassword" maxWidth="250" promptText="Re-enter your password" />
+           <Label style="-fx-font-size: 20px" text="PhoneNumber">Số điện thoại
+               <padding>
+                   <Insets bottom="5.0" top="10.0" />
+               </padding>
+         </Label>
+           <TextField fx:id="phoneNumber" maxWidth="250" promptText="Enter your phonenumber">
+        </TextField>
+           <Label style="-fx-font-size: 20px" text="Address">Địa chỉ
+               <padding>
+                   <Insets bottom="5.0" top="10.0" />
+               </padding>
+         </Label>
+           <TextField fx:id="address" maxWidth="250" promptText="Enter your address">
+        </TextField>
+            <Button onAction="#signUp" alignment="CENTER" prefHeight="25.0" prefWidth="81.0"
+                    style="-fx-background-color: #adc7e7;" text="Sign Up">
+            <VBox.margin>
+               <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+            </Button>
+         <Hyperlink onAction="#showLogin" text="You have an account?" />
+   </children>
+</VBox>
